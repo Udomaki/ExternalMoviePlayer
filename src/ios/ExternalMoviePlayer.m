@@ -57,24 +57,6 @@
     
 }
 
-- (void) checkExternalScreenAvailable:(CDVInvokedUrlCommand*)command
-{
-    NSString        *callbackId = command.callbackId;
-    
-    NSString* result = nil;
-    if ([[UIScreen screens] count] > 1) {
-        result = @"YES";
-    }
-    else
-    {
-        result = @"NO";
-    }
-    //[result retain];
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: result];
-    [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
-    //[result release];
-}
-
 - (void) attemptSecondScreenView
 {
     NSURL *path = [NSURL fileURLWithPath: [[NSBundle mainBundle] pathForResource:@"videos/movie" ofType:@"mp4"]];
