@@ -88,7 +88,7 @@ NSString* SCREEN_NOTIFICATION_HANDLERS_OK =@"External screen notification handle
         externalWindow.frame = screenBounds;
         externalWindow.clipsToBounds = YES;
         
-        movieView = [[MPMoviePlayerViewController alloc] initWithContentURL:path];
+        movieView = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL URLWithString:@"videos/TestVideo.mp4"]];
         MPMoviePlayerController *player = [movieView moviePlayer];
         [player setControlStyle:MPMovieControlStyleNone];
         [player setFullscreen:TRUE];
