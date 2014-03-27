@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.catalystitservices.cordova.plugin.ExternalMoviePlayer"
+    version="0.0.1">
+
+    <name>External Movie Player</name>
+
+    <description>The PhoneGap iOS ExternalScreen Plugin is a native Plugin for PhoneGap/Apache Cordova which enables multi-screen application scenarios for PhoneGap projects. This plugin is only for for iOS devices.</description>
+
+    <license>MIT</license>
+
+    <engines>
+        <engine name="cordova" version=">=2.9.0" />
+    </engines>
+
+    <js-module src="www/ExternalMoviePlayer.js" name="ExternalMoviePlayer">
+        <clobbers target="ExternalMoviePlayer"/>
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ExternalMoviePlayer">
+                <param name="ios-package" value="ExternalMoviePlayer"/>
+            </feature>
+                </config-file>
+                <header-file src="src/ios/ExternalMoviePlayer.h" />
+            <source-file src="src/ios/ExternalMoviePlayer.m" />
+    </platform>
+</plugin>
