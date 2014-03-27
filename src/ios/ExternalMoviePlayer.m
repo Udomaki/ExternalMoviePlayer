@@ -10,7 +10,7 @@
 
 @implementation ExternalMoviePlayer
 
-
+NSString* SCREEN_NOTIFICATION_HANDLERS_OK =@"External screen notification handlers initialized";
 
 //used to determine if an external screen is available
 - (void) checkExternalScreenAvailable:(CDVInvokedUrlCommand*)command
