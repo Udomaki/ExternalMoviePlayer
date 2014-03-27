@@ -31,7 +31,22 @@
     //[result release];
 }
 
-
+//used to initialize monitoring of external screen
+- (void)setupScreenConnectionNotificationHandlers:(CDVInvokedUrlCommand*)command
+{
+    NSString *callbackId = command.callbackId;
+    
+    NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+    
+    [center addObserver:self selector:@selector(handleScreenConnectNotification:) name:UIScreenDidConnectNotification object:nil];
+    [center addObserver:self selector:@selector(handleScreenDisconnectNotification:) name:UIScreenDidDisconnectNotification object:nil];
+    
+    [self attemptSecondScreenView];
+    
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: SCREEN_NOTIFICATION_HANDLERS_OK];
+    
+    [self writeJavascript: [pluginResult toSuccessCallbackString:callbackId]];
+}
 
 //invoked when an additional screen is connected to iOS device (VGA or Airplay)
 - (void)handleScreenConnectNotification:(NSNotification*)aNotification
