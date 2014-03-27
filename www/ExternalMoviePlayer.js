@@ -10,7 +10,7 @@ function playLocalMovie(url, success, fail) {
 }
 
 function setupScreenConnectionNotificationHandlers(success, fail) {
-     return exec(success, fail, "PGExternalScreen", "setupScreenConnectionNotificationHandlers", []);
+     return exec(success, fail, "ExternalMoviePlayer", "setupScreenConnectionNotificationHandlers", []);
 }
 
 
